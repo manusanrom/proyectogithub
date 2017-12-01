@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+print "Content-Type: text/html\n\n";
+if($ENV{'QUERY_STRING'} eq "") {
+   print "<h1>Elige entre las distintas opciones</h1>
+          <form name=\"search\" method=\"get\" >";
+   print "<input type = \"radio\" name = \"eleccion\" value = \"IP\" >Tu direcc$
+   print "<input type = \"radio\" name = \"eleccion\" value = \"version\" >Vers$
+   print "<input type = \"radio\" name = \"eleccion\" value = \"nombre\" >El no$
+   print "<input type=\"submit\" value=\"Aceptar\" />";
+   print "</form>";
+}
+else {
+   @arGet=split("=",$ENV{'QUERY_STRING'});
+   $arGet[1]=~ s/%2F/\//g;
+
+   if($arGet[1] eq "IP"){
+   print "Su direccion IP es $ENV{'REMOTE_ADDR'}</i>";
+   }
+   elsif($arGet[1] eq "version"){
+   else{
+   print "El nombre del Script es $ENV{'SCRIPT_NAME'}</i>";
+   }
+}
